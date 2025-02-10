@@ -10,9 +10,14 @@ app.use(express.static(path.join(__dirname, "client")));
 
 app.use(bodyParser.json());
 
+const vapidKeys = webpush.generateVAPIDKeys();
+
+console.log("VAPID Public Key:", vapidKeys.publicKey);
+console.log("VAPID Private Key:", vapidKeys.privateKey);
+
 const publicVapidKey =
-  "Открытый ключ";
-const privateVapidKey = "Закрытый ключ";
+  vapidKeys.publicKey;
+const privateVapidKey = vapidKeys.privateKey;
 
 webpush.setVapidDetails(
   "mailto:test@test.com",
