@@ -1,5 +1,5 @@
 const publicVapidKey =
-  "Открытый ключ";
+  "public key";
 
 // Check for service worker
 if ("serviceWorker" in navigator) {
